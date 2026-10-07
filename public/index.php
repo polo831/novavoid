@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 error_reporting(-1);
 // Definimos que todas las rutas van a ser relativas a la raiz del sitio
 chdir(dirname(__DIR__));
