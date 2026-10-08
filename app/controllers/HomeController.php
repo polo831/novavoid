@@ -6,7 +6,7 @@ use \Controller;
 use \Response;
 use \DataBase;
 use app\models\UserModel;
-use app\models\ProductoModel; // 1. Importamos el modelo de productos
+use app\models\ProductoModel;
 
 class HomeController extends Controller
 {
@@ -17,27 +17,33 @@ class HomeController extends Controller
         self::$sessionStatus = SessionController::sessionVerificacion();
     }
 
-
     public function actionIndex($var = null)
     {
-		exit("¡SÍ ENTRÓ AL CONTROLADOR HOME!");
         SessionController::onlyUsers(); 
         $nombre = "jose";   
 
-        // 2. Obtenemos los productos desde la base de datos
-        $productos = ProductoModel::obtenerTodos();
+        // 1. Capturamos la categoría seleccionada desde la URL (ej: ?categoria=remeras)
+        $categoriaSeleccionada = $_GET['categoria'] ?? null;
+
+        // 2. Evaluamos si hay un filtro activo o traemos todos los productos
+        if ($categoriaSeleccionada) {
+            $productos = ProductoModel::obtenerPorCategoria($categoriaSeleccionada);
+        } else {
+            $productos = ProductoModel::obtenerTodos();
+        }
 
         static::path();
         $nombre_de_archivoDeVista = 'home';
-        $parametros_de_vista = [
+       $parametros_de_vista = [
             "head" => SiteController::head(),
             "header" => SiteController::header(),
             "topbar" => SiteController::topbar(),
             "menu" => SiteController::menu(),
             "menu_res" => SiteController::menu_res(),
             "nombre" => $nombre,
-            "productos" => $productos, // 3. Inyectamos los productos a la vista
-        ]; 
+            "productos" => $productos,
+        ];
+        
         Response::render($this->viewDir(__NAMESPACE__), $nombre_de_archivoDeVista, $parametros_de_vista);
     }
 }

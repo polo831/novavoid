@@ -18,7 +18,7 @@ class AuthController {
                 $exito = UserModel::registrar($nombre, $email, $password);
 
                 if ($exito) {
-                    header('Location: /tiendaonlinepolo/public/index.php?url=auth/login&registrado=1');
+                    header('Location: /novavoid/public/index.php?url=auth/login&registrado=1');
                     exit;
                 } else {
                     $error = "El correo electrónico ya está registrado o hubo un error.";
@@ -52,7 +52,7 @@ class AuthController {
                     $_SESSION['email'] = $usuario['email'];
                     $_SESSION['rol'] = $usuario['rol'];
 
-                    header('Location: /tiendaonlinepolo/public/index.php?url=home/index');
+                    header('Location: /novavoid/public/index.php?url=home/index');
                     exit;
                 } else {
                     $error = "Correo electrónico o contraseña incorrectos.";
@@ -65,9 +65,30 @@ class AuthController {
         include_once __DIR__ . '/../views/auth/login.php';
     }
 
+    public function actionLogout() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $_SESSION = array();
+
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
+        session_destroy();
+
+        header('Location: /novavoid/public/index.php?url=auth/login');
+        exit();
+    }
+
     public function action404() {
         echo "<h1 style='text-align: center; margin-top: 50px;'>404 - Página no encontrada en Noda Void</h1>";
-        echo "<p style='text-align: center;'><a href='/tiendaonlinepolo/public/index.php?url=auth/login'>Volver al login</a></p>";
+        echo "<p style='text-align: center;'><a href='/novavoid/public/index.php?url=auth/login'>Volver al login</a></p>";
     }
 
 }

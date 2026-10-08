@@ -28,7 +28,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form action="/tiendaonlinepolo/public/index.php?url=auth/register" method="POST">
+                        <form action="/novavoid/public/index.php?url=auth/register" method="POST">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" id="nombre" name="nombre" required class="form-control" placeholder="Tu nombre completo">
@@ -50,7 +50,7 @@
                         </form>
 
                         <div class="text-center mt-4">
-                            <p class="text-muted mb-0">¿Ya tienes una cuenta? <a href="/tiendaonlinepolo/public/index.php?url=auth/login" class="text-decoration-none fw-semibold text-dark">Inicia sesión aquí</a></p>
+                            <p class="text-muted mb-0">¿Ya tienes una cuenta? <a href="/novavoid/public/index.php?url=auth/login" class="text-decoration-none fw-semibold text-dark">Inicia sesión aquí</a></p>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 <?php 
 session_start();
 error_reporting(-1);
-// Definimos que todas las rutas van a ser relativas a la raiz del sitio
+
+// Definimos que todas las rutas van a ser relativas a la raíz del sitio
 chdir(dirname(__DIR__));
 define("CORE_PATH", "app/core/");
 define("APP_PATH", "app/");
@@ -14,7 +15,6 @@ if (file_exists('app/librerias/vendor/autoload.php')) {
     $dotenv->load();
 }
 
-require_once CORE_PATH."Autoloader.php";
+require_once CORE_PATH . "Autoloader.php";
 
 $app = new App;
-

@@ -38,8 +38,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
-
-                <form action="/tiendaonlinepolo/public/index.php?url=auth/login" method="POST">
+                 <form action="/novavoid/public/index.php?url=auth/login" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label fw-semibold">Correo Electrónico</label>
                         <div class="input-group">
@@ -62,7 +61,7 @@
                 </form>
 
                 <div class="text-center mt-3">
-                    <p class="text-muted small mb-0">¿No tienes cuenta? <a href="/tiendaonlinepolo/public/index.php?url=auth/register" class="text-decoration-none fw-semibold text-dark">Regístrate aquí</a></p>
+                    <p class="text-muted small mb-0">¿No tienes cuenta? <a href="/novavoid/public/index.php?url=auth/register" class="text-decoration-none fw-semibold text-dark">Regístrate aquí</a></p>
                 </div>
 
             </div>
