@@ -44,8 +44,8 @@
          <div class="d-flex justify-content-center gap-2 flex-wrap mb-5">
        <a href="/novavoid/public/index.php?url=home/index" class="btn btn-outline-dark btn-sm px-4">Todas</a>
        <a href="/novavoid/public/index.php?url=home/index&categoria=1" class="btn btn-outline-dark btn-sm px-4">Remeras</a>
-       <a href="/novavoid/public/index.php?url=home/index&categoria=3" class="btn btn-outline-dark btn-sm px-4">Pantalones</a>
-       <a href="/novavoid/public/index.php?url=home/index&categoria=2" class="btn btn-outline-dark btn-sm px-4">Buzos</a>
+       <a href="/novavoid/public/index.php?url=home/index&categoria=2" class="btn btn-outline-dark btn-sm px-4">Pantalones</a>
+       <a href="/novavoid/public/index.php?url=home/index&categoria=3" class="btn btn-outline-dark btn-sm px-4">Buzos</a>
 </div>
         <!-- Grilla de Productos -->
         <div class="row">
@@ -53,21 +53,24 @@
                 <?php foreach ($productos as $producto): ?>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0">
-                            <img src="img/<?php echo htmlspecialchars($producto['imagen'] ?? ''); ?>" 
+                            <img src="/novavoid/public/img/<?php echo htmlspecialchars($producto['imagen'] ?? ''); ?>" 
                                  class="card-img-top" 
                                  style="height: 280px; object-fit: cover;" 
                                  alt="Imagen del producto">
                             
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title fw-bold">
-                                    <?php echo htmlspecialchars($producto['nombre_prenda'] ?? 'Sin nombre'); ?>
+                                 <a href="/novavoid/public/index.php?url=productos/detalle&id=<?= $producto['id'] ?>" class="text-dark text-decoration-none">
+                                <?php echo htmlspecialchars($producto['nombre'] ?? 'Sin nombre'); ?>
+                                </a>
                                 </h5>
+                               
                                 <p class="card-text text-muted small"><?php echo htmlspecialchars($producto['descripcion'] ?? ''); ?></p>
                                 
                                 <div class="mt-auto">
                                     <span class="badge bg-secondary mb-2">Talle: <?php echo htmlspecialchars($producto['talle'] ?? '-'); ?></span>
                                     <p class="fs-5 fw-bold text-dark mb-3">$<?php echo number_format($producto['precio'] ?? 0, 2, ',', '.'); ?></p>
-                                    <a href="/novavoid/public/index.php?url=cart/checkout&id=<?php echo $producto['id_producto']; ?>" class="btn btn-dark w-100">Comprar</a>
+                                   <a href="/novavoid/public/index.php?url=carrito/agregar&id=<?php echo $producto['id']; ?>" class="btn btn-dark w-100">Comprar</a>
                                 </div>
                             </div>
                         </div>

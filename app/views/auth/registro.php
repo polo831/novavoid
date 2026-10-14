@@ -39,10 +39,32 @@
                                 <input type="email" id="email" name="email" required class="form-control" placeholder="ejemplo@correo.com">
                             </div>
 
-                            <div class="mb-4">
-                                <label for="password" class="form-label">Contraseña</label>
-                                <input type="password" id="password" name="password" required class="form-control" placeholder="••••••••">
+                            <!-- Campo Dirección -->
+                           <div class="mb-3">
+                                <label for="direccion" class="form-label fw-bold">Dirección</label>
+                                <input type="text" id="direccion" name="direccion" class="form-control" required placeholder="Ej: San Martín 1234, Santa Fe">
                             </div>
+
+                            <!-- Campo Teléfono -->
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label fw-bold">Teléfono / Celular</label>
+                                <input type="text" id="telefono" name="telefono" class="form-control" required placeholder="Ej: 3421234567">
+                           </div>
+
+                            <!-- Campo Contraseña -->
+                            <div class="mb-3">
+                                  <label for="password" class="form-label fw-bold">Contraseña</label>
+                                 <input type="password" id="password" name="password" class="form-control" required placeholder="Mínimo 8 caracteres">
+                                <div class="form-text">Debe tener al menos 8 caracteres, una letra mayúscula, un número y un símbolo especial.</div>
+                            </div>
+
+                            <!-- Campo Confirmar Contraseña -->
+                            <div class="mb-3">
+                                 <label for="confirmar_password" class="form-label fw-bold">Confirmar Contraseña</label>
+                                <input type="password" id="confirmar_password" name="confirmar_password" class="form-control" required placeholder="Repite tu contraseña">
+                            </div>
+
+                            
 
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-dark py-2">Registrarse</button>

@@ -57,6 +57,9 @@
 
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-dark py-2 fw-semibold rounded-3 shadow-sm">Ingresar</button>
+                        <div class="text-center mt-3">
+                     <a href="/novavoid/public/index.php?url=auth/recuperar" class="text-decoration-none text-muted">¿Olvidaste tu contraseña?</a>
+                    </div>
                     </div>
                 </form>
 
