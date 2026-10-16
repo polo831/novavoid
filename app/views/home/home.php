@@ -68,7 +68,6 @@
                                 <p class="card-text text-muted small"><?php echo htmlspecialchars($producto['descripcion'] ?? ''); ?></p>
                                 
                                 <div class="mt-auto">
-                                    <span class="badge bg-secondary mb-2">Talle: <?php echo htmlspecialchars($producto['talle'] ?? '-'); ?></span>
                                     <p class="fs-5 fw-bold text-dark mb-3">$<?php echo number_format($producto['precio'] ?? 0, 2, ',', '.'); ?></p>
                                    <a href="/novavoid/public/index.php?url=carrito/agregar&id=<?php echo $producto['id']; ?>" class="btn btn-dark w-100">Comprar</a>
                                 </div>
