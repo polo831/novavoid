@@ -82,6 +82,12 @@
             <?php endif; ?>
         </div>
     </div>
+    <!-- Enlace de acceso al login de administrador -->
+<div class="text-center my-4 py-3 border-top">
+    <a href="index.php?url=auth/login" class="text-muted text-decoration-none small">
+        <i class="bi bi-shield-lock"></i> Acceso Administrador
+    </a>
+</div>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

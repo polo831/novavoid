@@ -50,7 +50,6 @@ class AuthController {
 
         include_once __DIR__ . '/../views/auth/registro.php';
     }
-
     public function actionLogin() {
         $error = null;
         $mensajeExito = isset($_GET['registrado']) ? "¡Registro exitoso! Ya puedes iniciar sesión." : null;
@@ -72,8 +71,14 @@ class AuthController {
                     $_SESSION['email'] = $usuario['email'];
                     $_SESSION['rol'] = $usuario['rol'];
 
-                    header('Location: /novavoid/public/index.php?url=home/index');
-                    exit;
+                    // --- REDIRECCIÓN INTELIGENTE SEGÚN EL ROL ---
+                    if ($usuario['rol'] === 'admin') {
+                        header('Location: index.php?url=admin/index');
+                        exit();
+                    } else {
+                        header('Location: index.php?url=home/index');
+                        exit();
+                    }
                 } else {
                     $error = "Correo electrónico o contraseña incorrectos.";
                 }
@@ -82,8 +87,11 @@ class AuthController {
             }
         }
 
+        // Este include ahora sí está 100% DENTRO de actionLogin() antes de cerrar la función
         include_once __DIR__ . '/../views/auth/login.php';
     }
+
+   
 
     public function actionRecuperar() {
         $error = null;
